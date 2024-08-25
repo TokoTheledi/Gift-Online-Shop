@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing - Unique Gifting Experience</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF0F5;
+            color: #333;
+        }
+
+        .bank-logo {
+            height: 75px;
+            width: auto;
+        }
+
+        .bank-card {
+            transition: transform 0.2s;
+        }
+
+        .bank-card:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-xl font-bold text-pink-400">Gifted By KAMS</div>
+                <div class="flex items-center">
+                    <input id="searchBar" type="text" placeholder="Search gifts..." class="mr-2 p-2 border rounded">
+                    <button onclick="searchProducts()" class="bg-pink-400 text-white px-4 py-2 rounded">Search</button>
+                </div>
+            </div>
+            <nav class="mt-4">
+                <ul class="flex justify-center space-x-8">
+                    <li><a href="Home.html" class="text-gray-700 hover:text-pink-400">Home</a></li>
+                    <li><a href="CATEGORY.html" class="text-gray-700 hover:text-pink-400">Categories</a></li>
+                    <li><a href="ACCOUNT.html" class="text-gray-700 hover:text-pink-400">Account</a></li>
+                    <li><a href="About Us.html" class="text-gray-700 hover:text-pink-400">About Us</a></li>
+                    <li><a href="CONTACTS.html" class="text-gray-700 hover:text-pink-400">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+        <h2 class="text-2xl font-bold mb-4">Billing Information</h2>
+        <p class="mb-6">Enter your billing details and select your preferred payment method to complete your purchase.</p>
+
+        <h3 class="text-xl font-semibold mb-4">Enter Account Number</h3>
+        <div>
+            <input type="text" id="accountNumber" placeholder="Enter Account Number" class="p-2 border rounded mb-4 w-full">
+        </div>
+        <h3 class="text-xl font-semibold mt-6 mb-4">Select Your Bank</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Bank Logo Cards -->
+            <div class="bg-white rounded shadow-md p-4 bank-card text-center">
+                <img src="https://th.bing.com/th/id/R.21d8718d31f685232d951fbc5a44219c?rik=bxVQKXaYZne5SA&riu=http%3a%2f%2fetimes.com.ng%2fwp-content%2fuploads%2f2020%2f06%2fbank.jpg&ehk=k0XlAjiSoRfRro7jj8M8NY3qH1MJDoGfGs9txn9v3BA%3d&risl=&pid=ImgRaw&r=0" alt="Standard Bank" class="bank-logo mx-auto">
+                <p class="mt-2 font-bold">Standard Bank</p>
+            </div>
+            <div class="bg-white rounded shadow-md p-4 bank-card text-center">
+                <img src="https://th.bing.com/th/id/R.0aa46e1f95b3980890e2712291ec987d?rik=yx4mxmVLrryHGg&pid=ImgRaw&r=0" alt="FNB" class="bank-logo mx-auto">
+                <p class="mt-2 font-bold">FNB</p>
+            </div>
+            <div class="bg-white rounded shadow-md p-4 bank-card text-center">
+                <img src="https://th.bing.com/th/id/R.3a65d1cd92ce54b3318384a05cebf78a?rik=t0N%2bVWUKfI%2bpeA&pid=ImgRaw&r=0" alt="Absa" class="bank-logo mx-auto">
+                <p class="mt-2 font-bold">Absa</p>
+            </div>
+            <div class="bg-white rounded shadow-md p-4 bank-card text-center">
+                <img src="https://th.bing.com/th/id/R.9de9284e2988a25d57100a94a2a09fd6?rik=PsTTj1IJs%2fQlGg&pid=ImgRaw&r=0" alt="Nedbank" class="bank-logo mx-auto">
+                <p class="mt-2 font-bold">Nedbank</p>
+            </div>
+            <div class="bg-white rounded shadow-md p-4 bank-card text-center">
+                <img src="https://cdn.arcadiafinance.co.za/wp-content/uploads/2023/11/Capitec-Bank-Logo-1024x538.jpg?cdn=1.0.1" alt="Capitec" class="bank-logo mx-auto">
+                <p class="mt-2 font-bold">Capitec</p>
+            </div>
+            <div class="bg-white rounded shadow-md p-4 bank-card text-center">
+                <img src="https://th.bing.com/th/id/OIP.y6yI3hO4kQaw1YEYzMrnNwAAAA?rs=1&pid=ImgDetMain" alt="African Bank" class="bank-logo mx-auto">
+                <p class="mt-2 font-bold">African Bank</p>
+            </div>
+        </div>
+        <div>
+            <button onclick="displayTotal()" class="bg-pink-400 text-white px-4 py-2 rounded">Pay Now</button>
+        
+            <div id="totalAmount" class="mt-4 text-lg font-bold"></div>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-2">About Us</h3>
+                    <p>Our mission is to elevate the art of gifting by providing unique, high-quality products that leave a lasting impression.</p>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-2">Quick Links</h3>
+                    <ul>
+                        <li><a href="Home.html" class="hover:underline">Home</a></li>
+                        <li><a href="CATEGORY.html" class="hover:underline">Categories</a></li>
+                        <li><a href="CONTACTS.html" class="hover:underline">Contact</a></li>
+                        <li><a href="ACCOUNT.html" class="hover:underline">Account</a></li>
+                        <li><a href="About Us.html" class="hover:underline">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-2">Contact Us</h3>
+                    <p>Email: support@giftedbykams.com</p>
+                    <p>Phone: +27 12 345 6789</p>
+                </div>
+                <div class="w-full md:w-1/4 mb-6 md:mb-0">
+                    <h3 class="text-lg font-semibold mb-2">Follow Us</h3>
+                    <ul class="flex space-x-4">
+                        <li><a href="#" class="hover:text-pink-400"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#" class="hover:text-pink-400"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#" class="hover:text-pink-400"><i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>&copy; 2023 Gifted By KAMS. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Example total from the cart
+        let cartTotal = 1000; // This can be dynamically fetched from your cart system
+
+        function searchProducts() {
+            const searchTerm = document.getElementById('searchBar').value.toLowerCase();
+            // Implement search functionality here
+        }
+
+        function displayTotal() {
+            const accountNumber = document.getElementById('accountNumber').value;
+            if (accountNumber) {
+                document.getElementById('totalAmount').textContent = `Total amount to pay: R${cartTotal.toFixed(2)}`;
+            } else {
+                document.getElementById('totalAmount').textContent = 'Please enter your account number.';
+            }
+        }
+    </script>
+</body>
+
+</html>
